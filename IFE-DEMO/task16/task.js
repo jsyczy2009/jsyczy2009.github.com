@@ -1,19 +1,19 @@
 /**
- * Created by ÖÜÓÎ on 2016/3/23.
+ * Created by å‘¨æ¸¸ on 2016/3/23.
  */
 /**
- * aqiData£¬´æ´¢ÓÃ»§ÊäÈëµÄ¿ÕÆøÖ¸ÊıÊı¾İ
- * Ê¾Àı¸ñÊ½£º
+ * aqiDataï¼Œå­˜å‚¨ç”¨æˆ·è¾“å…¥çš„ç©ºæ°”æŒ‡æ•°æ•°æ®
+ * ç¤ºä¾‹æ ¼å¼ï¼š
  * aqiData = {
- *    "±±¾©": 90,
- *    "ÉÏº£": 40
+ *    "åŒ—äº¬": 90,
+ *    "ä¸Šæµ·": 40
  * };
  */
 var aqiData = {};
 
 /**
- * ´ÓÓÃ»§ÊäÈëÖĞ»ñÈ¡Êı¾İ£¬ÏòaqiDataÖĞÔö¼ÓÒ»ÌõÊı¾İ
- * È»ºóäÖÈ¾aqi-listÁĞ±í£¬Ôö¼ÓĞÂÔöµÄÊı¾İ
+ * ä»ç”¨æˆ·è¾“å…¥ä¸­è·å–æ•°æ®ï¼Œå‘aqiDataä¸­å¢åŠ ä¸€æ¡æ•°æ®
+ * ç„¶åæ¸²æŸ“aqi-liståˆ—è¡¨ï¼Œå¢åŠ æ–°å¢çš„æ•°æ®
  */
 function addAqiData() {
     var city = document.getElementById("aqi-city-input").value;
@@ -22,18 +22,18 @@ function addAqiData() {
     air = trim(air);
     var creg =/^[\u4e00-\u9fa5a-zA-Z]+$/g;
     if(!creg.test(city)){
-        alert("ÇëÊäÈëÕıÈ·µÄ³ÇÊĞÃû");
+        alert("è¯·è¾“å…¥æ­£ç¡®çš„åŸå¸‚å");
         return;
     }
     var areg =/^\d+$/g;
     if(!areg.test(air)) {
-        alert("ÇëÊäÈëÕıÈ·µÄ¿ÕÆøÖÊÁ¿Ö¸Êı");
+        alert("è¯·è¾“å…¥æ­£ç¡®çš„ç©ºæ°”è´¨é‡æŒ‡æ•°");
         return;
     }
     aqiData[city] = air;
 }
 /**
- *È¥¿Õ×Ö·ûº¯Êı
+ *å»ç©ºå­—ç¬¦å‡½æ•°
  */
 function trim(str) {
     var newStr = str.replace(/^\s*$/,"");
@@ -41,22 +41,22 @@ function trim(str) {
 }
 
 /**
- * äÖÈ¾aqi-table±í¸ñ
+ * æ¸²æŸ“aqi-tableè¡¨æ ¼
  */
 function renderAqiList() {
     var items =[];
-    //aqiData²»Îª¿Õ
+    //aqiDataä¸ä¸ºç©º
     if(!isNullObject(aqiData)) {
         items.push("<tr>");
-        items.push("<th>³ÇÊĞ</th>");
-        items.push("<th>¿ÕÆøÖÊÁ¿</th>");
-        items.push("<th>²Ù×÷</th>");
+        items.push("<th>åŸå¸‚</th>");
+        items.push("<th>ç©ºæ°”è´¨é‡</th>");
+        items.push("<th>æ“ä½œ</th>");
         items.push("</tr>");
         for(var va in aqiData) {
             items.push("<tr>");
             items.push("<td>"+va+"</td>");
             items.push("<td>"+aqiData[va]+"</td>");
-            items.push("<td><input type='button' value='É¾³ı' onclick='delBtnHandle(\"" + va + "\")'></td>");
+            items.push("<td><input type='button' value='åˆ é™¤' onclick='delBtnHandle(\"" + va + "\")'></td>");
             items.push("</tr>");
         }
     }
@@ -65,7 +65,7 @@ function renderAqiList() {
     table.innerHTML=inStr;
 }
 /**
- * ÅĞ¶Ï¶ÔÏóÊÇ·ñÎª¿Õ
+ * åˆ¤æ–­å¯¹è±¡æ˜¯å¦ä¸ºç©º
  */
 function isNullObject(obj) {
     for(var i in obj) {
@@ -76,8 +76,8 @@ function isNullObject(obj) {
     return true;
 }
 /**
- * µã»÷add-btnÊ±µÄ´¦ÀíÂß¼­
- * »ñÈ¡ÓÃ»§ÊäÈë£¬¸üĞÂÊı¾İ£¬²¢½øĞĞÒ³Ãæ³ÊÏÖµÄ¸üĞÂ
+ * ç‚¹å‡»add-btnæ—¶çš„å¤„ç†é€»è¾‘
+ * è·å–ç”¨æˆ·è¾“å…¥ï¼Œæ›´æ–°æ•°æ®ï¼Œå¹¶è¿›è¡Œé¡µé¢å‘ˆç°çš„æ›´æ–°
  */
 function addBtnHandle() {
     addAqiData();
@@ -85,8 +85,8 @@ function addBtnHandle() {
 }
 
 /**
- * µã»÷¸÷¸öÉ¾³ı°´Å¥µÄÊ±ºòµÄ´¦ÀíÂß¼­
- * »ñÈ¡ÄÄ¸ö³ÇÊĞÊı¾İ±»É¾£¬É¾³ıÊı¾İ£¬¸üĞÂ±í¸ñÏÔÊ¾
+ * ç‚¹å‡»å„ä¸ªåˆ é™¤æŒ‰é’®çš„æ—¶å€™çš„å¤„ç†é€»è¾‘
+ * è·å–å“ªä¸ªåŸå¸‚æ•°æ®è¢«åˆ ï¼Œåˆ é™¤æ•°æ®ï¼Œæ›´æ–°è¡¨æ ¼æ˜¾ç¤º
  */
 function delBtnHandle(val) {
     // do sth.
@@ -96,10 +96,10 @@ function delBtnHandle(val) {
 
 function init() {
 
-    // ÔÚÕâÏÂÃæ¸øadd-btn°ó¶¨Ò»¸öµã»÷ÊÂ¼ş£¬µã»÷Ê±´¥·¢addBtnHandleº¯Êı
+    // åœ¨è¿™ä¸‹é¢ç»™add-btnç»‘å®šä¸€ä¸ªç‚¹å‡»äº‹ä»¶ï¼Œç‚¹å‡»æ—¶è§¦å‘addBtnHandleå‡½æ•°
     var but =document.getElementById("add-btn");
     but.addEventListener("click",addBtnHandle,false);
-    // Ïë°ì·¨¸øaqi-tableÖĞµÄËùÓĞÉ¾³ı°´Å¥°ó¶¨ÊÂ¼ş£¬´¥·¢delBtnHandleº¯Êı
+    // æƒ³åŠæ³•ç»™aqi-tableä¸­çš„æ‰€æœ‰åˆ é™¤æŒ‰é’®ç»‘å®šäº‹ä»¶ï¼Œè§¦å‘delBtnHandleå‡½æ•°
 
 }
 
