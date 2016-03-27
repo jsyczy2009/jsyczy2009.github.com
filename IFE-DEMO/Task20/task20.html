@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模拟一个队列</title>
+    <style type="text/css">
+        span {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            margin: 5px;
+            background-color: #f00;
+            color:#00f;
+        }
+        .outer {
+            width: 100px;
+            height: 150px;
+            margin: 5px;
+            float: left;
+            position: relative;
+        }
+        .rsDiv {
+            width: 100px;
+            height:100px;
+            color:#0000ff;
+            background-color:#ff0000 ;
+            text-align: center;
+            position: absolute;
+            bottom: 0;
+        }
+        .keyW {
+            color:#0f0;
+            background-color:#fff000;
+        }
+
+    </style>
+    <script type="text/javascript">
+        var results = [];
+        function getElements() {
+            var leftIn = document.getElementById("lfi");
+            var rightIn = document.getElementById("rgi");
+            var leftOut = document.getElementById("lfo");
+            var rightOut = document.getElementById("rgo");
+            var queryBut = document.getElementById("qyBut");
+            leftIn.addEventListener("click",linsener,false);
+            rightIn.addEventListener("click",linsener,false);
+            leftOut.addEventListener("click",linsener,false);
+            rightOut.addEventListener("click",linsener,false);
+            queryBut.addEventListener("click",linsener,false);
+        }
+        function linsener(event) {
+            var input = document.getElementById("inPut").value;
+            var reg = /^[\u4e00-\u9fa5a-zA-Z0-9, ， 、\r\s\t\u3000]+$/g;
+            var splitReg =/,|，| |、|\r|\s|\t|\u3000/;
+            var result = document.getElementById("result");
+            var reslist =result.childNodes;
+            var eve = event.target.value;
+            switch (eve) {
+                case 'leftIn' :
+                    if (reg.test(input)) {
+                        input.split(splitReg).filter(function(item) {
+                            return item;
+                        }).forEach(function(item) {
+                            results.unshift(item);
+                        });
+                        refreshDiv();
+                    } else {
+                        alert("输入的字符不符合约定");
+                    }
+                    break;
+                case 'rightIn' :
+                    if (reg.test(input)) {
+                        input.split(splitReg).filter(function(item) {
+                            return item;
+                        }).forEach(function(item) {
+                            results.push(item);
+                        });
+                        refreshDiv();
+                    } else {
+                        alert("输入的字符不符合约定");
+                    }
+                    break;
+                case 'leftOut' :
+                    if(reslist.length === 0) {
+                        alert("没有子元素了");
+                    } else {
+                        results.shift();
+                        refreshDiv();
+                    }
+                    break;
+                case 'rightOut' :
+                    if(reslist.length === 0 ) {
+                        alert("没有子元素了");
+                    } else {
+                        results.pop();
+                        refreshDiv();
+                    }
+                    break;
+                case  'queryButton' :
+                    var keyWord = document.getElementById("queryIn").value;
+                    if(!/^[\u4e00-\u9fa5a-zA-Z0-9]+$/.test(keyWord)) {
+                        alert("输入的查询关键字不合法");
+                        return;
+                    } else if(document.getElementsByClassName("rsDiv").length === 0) {
+                        alert("还么有子元素");
+                        return;
+                    }else {
+//                        var str ="";
+//                        for(var i = 0; i<results.length; i++) {
+//                            str +="<div class='outer'>";
+//                            if(results[i].indexOf(keyWord) != -1) {
+//                                str += "<div class='rsDiv keyW'>" + results[i] + "</div>";
+//                            } else {
+//                                str += "<div class='rsDiv'>" + results[i] + "</div>";
+//                            }
+//                            str += "</div>";
+//                        }
+//                        document.getElementById("result").innerHTML=str;
+
+                        var divList = document.getElementsByClassName("rsDiv");
+                        for (var i = 0; i<divList.length ;i++) {
+                            var cReg = new RegExp(".*" + keyWord + ".*");
+                            if (cReg.test(divList[i].innerText)) {
+                                divList[i].setAttribute("class", "rsDiv keyW")
+                            } else {
+                                divList[i].setAttribute("class", "rsDiv")
+                            }
+                        }
+                    }
+                    }
+        }
+
+        /**
+         * 刷新div
+         */
+        function refreshDiv() {
+            var str ="";
+            for(var i = 0; i<results.length; i++) {
+                str +="<div class='outer'>";
+                str += "<div class='rsDiv'>"+results[i]+"</div>";
+                str +="</div>";
+            }
+            document.getElementById("result").innerHTML=str;
+        }
+        window.onload = getElements;
+    </script>
+</head>
+<body>
+<div>
+    <textarea  id="inPut" placeholder="允许一次批量输入多个内容，格式可以为数字、中文、英文等，可以通过用回车，逗号（全角半角均可），顿号，空格（全角半角、Tab等均可）等符号作为不同内容的间隔"
+               rows="3" cols="50"></textarea>
+    <button id ="lfi" value="leftIn">左侧入</button>
+    <button id="rgi" value="rightIn">右侧入</button>
+    <button id="lfo" value="leftOut">左侧出</button>
+    <button id="rgo" value="rightOut">右侧出</button>
+    <input type="text" id="queryIn" placeholder="数字、中文、英文等">
+    <button id="qyBut" value="queryButton">查询</button>
+    <div id="result">
+    </div>
+</div>
+</body>
+</html>
