@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模拟一个队列</title>
+    <style type="text/css">
+        .rsDiv {
+            font-size: 30px;
+            color:#fff;
+            float: left;
+            margin-top: 25px;
+            margin-left: 10px;
+            background-color:#8fcdfc ;
+            text-align: center;
+            line-height: 34px;
+        }
+        .interest {
+            font-size: 30px;
+            color:#fff;
+            float: left;
+            margin-top: 25px;
+            margin-left: 10px;
+            background-color:#f6c88d ;
+            text-align: center;
+            line-height: 34px;
+        }
+        .down {
+            margin-top: 100px;
+        }
+
+    </style>
+    <script type="text/javascript">
+        //字符串trim函数
+        String.prototype.trim = function () {
+            return this.replace(/(^\s*)|(\s*$)/g, "");
+        }
+        //id获取dom
+        function $(id) {
+            return document.getElementById(id);
+        }
+
+        //事件监听兼容浏览器差异
+        function addEvent(element, event, listener) {
+            try {
+                element.addEventListener(event, listener, false);
+            } catch (e) {
+                try {
+                    element.attachEvent("on" + event, listener);
+                } catch (e) {
+                    element["on" + event] = listener;
+                }
+            }
+        }
+
+        // 分割textarea中的字符串
+        function splitText(str) {
+            var splitReg = /,|，|;|；|、|\r|\s|\t|\u3000/;
+            var arr = str.split(splitReg).filter(function (item) {
+                return item;
+            });
+            return arr;
+        }
+
+        //遍历数值函数
+        function arrEach(array, fn) {
+            for (var index = 0; index < array.length; index++) {
+                fn(array[index], index);
+            }
+        }
+
+        /**
+         * 子元素队列函数对象
+         **/
+        function QueueList(parents, canDel,divClass) {
+            this.lists = [];
+            this.parents = parents;
+            //右侧入
+            this.pushVar = function (obj) {
+                this.lists.push(obj);
+            }
+            //右侧出
+            this.popVar = function () {
+                if (this.isEmpty()) {
+                    alert("子元素为空");
+                    return;
+                }
+                this.lists.pop();
+            }
+            //左侧出
+            this.shiftVar = function () {
+                if (this.isEmpty()) {
+                    alert("子元素为空");
+                    return;
+                }
+                this.lists.shift();
+            }
+            //左侧进
+            this.unshiftVar = function (obj) {
+                this.lists.unshift(obj);
+            }
+            this.isEmpty = function () {
+                return (this.lists.length === 0);
+            }
+            //渲染界面
+            this.render = function () {
+                var html = "";
+                arrEach(this.lists, function (item) {
+                    html += "<div class=\'"+divClass+"\'>" + item + "</div>";
+                });
+                this.parents.innerHTML = html;
+                if (canDel) {
+                    childrenDelEvent(this, this.parents);
+                }
+            }
+            this.deleteItem = function (begin) {
+                this.lists.splice(begin, 1);
+                this.render();
+            }
+        }
+
+        //给每个可以删除的子元素添加事件
+        function childrenDelEvent(obj, parents) {
+            var children = parents.childNodes;
+            if(children.length) {
+                arrEach(children, function (item, index) {
+                    var temp = item.innerHTML;
+                    //鼠标悬停
+                    addEvent(item, "mouseover", function () {
+                        item.style.background = "#f00";
+                        item.innerHTML = "点击删除" + temp;
+                    });
+                    //鼠标移出
+                    addEvent(item, "mouseout", function () {
+                        item.style.background = "#8fcdfc";
+                        item.innerHTML = temp;
+                    })
+                    //点击
+                    addEvent(item, "click", function () {
+                        obj.deleteItem(index);
+                    });
+                })
+            }
+        }
+
+        function getTag1() {
+            var tag1 = new QueueList($("divTag"), true,"rsDiv");
+            var textTag = $("tag");
+            addEvent(textTag, "keyup", function (event) {
+                if (/,|，|;|；|、|\r|\s|\t|\u3000/.test(textTag.value) || event.keyCode == 13) {
+                    var value = textTag.value.replace(/,|，|;|；|、|\r|\s|\t|\u3000/,"").trim();
+                    if (value) {
+                        if (tag1.lists.indexOf(value) === -1) {
+                            if (tag1.lists.length >= 10) {
+                                alert("元素已满删除前部元素："+tag1.lists[0]);
+                                tag1.shiftVar();
+                            }
+                            tag1.pushVar(value);
+                        } else {
+                            alert("元素已存在");
+                        }
+                        tag1.render();
+                    }
+                    textTag.value = "";
+                }
+            })
+        }
+
+        function getTag2() {
+            var tag2 = new QueueList($("divInterests"), false,"interest");
+            addEvent($("confirm"), "click", function () {
+                var interestsTag = $("interests");
+                var interests = interestsTag.value;
+                var interestList = splitText(interests);
+                arrEach(interestList, function (item) {
+                    if (tag2.lists.indexOf(item) == -1) {
+                        if (tag2.lists.length >= 10) {
+                            tag2.shiftVar();
+                        }
+                        tag2.pushVar(item);
+                    }
+                })
+                tag2.render();
+            });
+        }
+        function init() {
+            getTag1();
+            getTag2();
+        }
+        window.onload = init;
+    </script>
+</head>
+<body>
+<div>
+    <div class="top">
+        Tag:<input type="text" id="tag" placeholder="数字、中文、英文等">
+        <div id="divTag"></div>
+    </div>
+    <div class="down">
+        <textarea  id="interests" placeholder="允许一次批量输入多个内容，格式可以为数字、中文、英文等，可以通过用回车，逗号（全角半角均可），顿号，空格（全角半角、Tab等均可）等符号作为不同内容的间隔"
+                   rows="3" cols="50"></textarea><br>
+        <button id="confirm">确认兴趣爱好</button>
+        <div id="divInterests"></div>
+    </div>
+</div>
+</body>
+</html>
