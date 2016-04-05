@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>javascript与树</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <h1>JavaScript与树</h1>
+    <div class="container" id="A">
+        <div class="left-Half" id="B">
+            <div class="ll-Quarter" id="D">
+                <div class="lll-Eighth" id="H"></div>
+                <div class="llr-Eighth" id="I"></div>
+            </div>
+            <div class="lrQuarter" id="E">
+                <div class="lrl-Eighth" id="J"></div>
+                <div class="lrr-Eighth" id="K"></div>
+            </div>
+        </div>
+        <div class="right-Half" id="C">
+            <div class="rl-Quarter" id="F">
+                <div class="rll-Eighth" id="L"></div>
+                <div class="rlr-Eighth" id="M"></div>
+            </div>
+            <div class="rrQuarter" id="G">
+                <div class="rrl-Eighth" id="N"></div>
+                <div class="rrr-Eighth" id="O"></div>
+            </div>
+        </div>
+    </div>
+    <div class="buttons">
+        <button id="pre">前序遍历</button>
+        <button id="middle">中序遍历</button>
+        <button id="next">后序遍历</button>
+        变速：<input type="text" id="speed" value="3000">
+    </div>
+    <script type="text/javascript" src="tree.js"></script>
+</body>
+</html>
