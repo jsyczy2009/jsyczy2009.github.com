@@ -102,9 +102,9 @@
  }
  .calendar-right>p:nth-child(3),.calendar-right>p:nth-child(5){
      width: 100px;
-     height: 80px;
+     height: 70px;
      text-align: center;
-     line-height: 25px;
+     line-height: 35px;
      margin: 10px auto;
  }
  .calendar-right> span {
@@ -123,4 +123,7 @@
  }
  #yearNext,#monthNext{
      background:url("images/to-left-right.gif") -17px  -1px no-repeat;
+ }
+ .today {
+     background-color: #fb0;
  }

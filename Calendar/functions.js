@@ -511,7 +511,17 @@
     }
 
     //获取点击的日期的信息
-    function show(day,e) {
+    function show(day,event) {
+        if(event) {
+            //alert(event.target);
+                if(event.target.tagName =="TD") {
+                    event.target.style.backgroundColor = "#fb0";
+                } else {
+                    event.target.parentNode.style.backgroundColor = "#fb0";
+                }
+
+
+        }
         var year = $("year").value;
         var month = $("month").value;
         if(day) {
@@ -529,6 +539,15 @@
         $("selectDay").innerHTML = day;
         $("selectLunnarDay").innerHTML = lunanr[0]+lunanr[1];
         $("selectLunnarYear").innerHTML = ganZhi +"【"+zodiac+"年"+"】";
+    }
+    function showOut(event) {
+        if(event) {
+            if(event.target.tagName=="TD") {
+                event.target.style.backgroundColor ="#fff";
+            }else {
+                event.target.parentNode.style.backgroundColor ="#fff";
+            }
+        }
     }
 
     //根据选择年份 月份 显示数据 ，默认显示当前月
@@ -585,8 +604,12 @@
         while (i < thisMonth.length) {
             for (var n = temp; n < 7 && i < thisMonth.length && temp < 7; n++) {
                 var day = i + 1;
+                if(day == today.getDate() && $("year").value == today.getFullYear() && $("month").value == (today.getMonth()+1)) {
+                    str += "<td onmouseover='show("+day+",event)' class='today'> ";
+                } else {
                 //"<tr><td onclick='al("+da+");'>1</td></tr>"
-                str += "<td onmouseover='show("+day+",event)' onmouseout='show()'>";
+                    str += "<td onmouseover='show("+day+",event)' onmouseout='showOut(event)'>";
+                }
                 if (n == 0 || n == 6) {
                     str += "<span class='table-everyday-daynum table-weekend'>" + (i + 1) + "</span><br>";
                 } else {
