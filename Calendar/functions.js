@@ -675,20 +675,54 @@
         month.innerHTML = mstr;
         addEvent($("year"), "change", showDates);
         addEvent($("month"), "change", showDates);
-        addEvent($("yearPre"), "click", function () {
-            $("year").value = $("year").value - 1;
+        addEvent($("yearPre"), "click", function () {//年减1
+            var year = $("year").value;//年
+            if(year == 1900) {
+                $("year").value = year;
+            } else {
+                $("year").value = $("year").value - 1;
+            }
             showDates();
         });
-        addEvent($("yearNext"), "click", function () {
-            $("year").value = ($("year").value - 1) + 2;
+        addEvent($("yearNext"), "click", function () {//年加1
+            var year = $("year").value;//年
+            if(year == 2100) {
+                $("year").value = year;
+            } else {
+                $("year").value = ($("year").value - 1) + 2;
+            }
             showDates();
         });
-        addEvent($("monthPre"), "click", function () {
-            $("month").value = $("month").value - 1;
+        addEvent($("monthPre"), "click", function () {//月减1 ，当为1月是 年减1 月为前一年12月
+            var month =$("month").value;
+            if(month == 1) {
+                var year = $("year").value;
+                if(year == 1900) {
+                    $("year").value = year;
+                    $("month").value = month;
+                } else {
+                    $("year").value = $("year").value - 1;
+                    $("month").value = 12;
+                }
+            } else {
+                $("month").value = $("month").value - 1;
+            }
             showDates();
         });
-        addEvent($("monthNext"), "click", function () {
-            $("month").value = ($("month").value - 1) + 2;
+        addEvent($("monthNext"), "click", function () {//月加1，当月为12是 年加1 月变为下一年1月
+            var month =$("month").value;
+            if(month == 12) {
+                var year = $("year").value;
+                if(year == 2100) {
+                    $("year").value = year;
+                    $("month").value = month;
+                } else {
+                    $("year").value = ($("year").value - 1) + 2;
+                    $("month").value = 1;
+                }
+            } else {
+                $("month").value = ($("month").value - 1) + 2;
+            }
             showDates();
         });
         addEvent($("returnToday"), "click", function () {
