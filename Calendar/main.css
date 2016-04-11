@@ -11,7 +11,7 @@
  }
  .calendar {
      display: flex;
-     width: 560px;
+     width: 570px;
      height: 370px;
      background-color: #5caeff;
      justify-content: space-between;
@@ -82,7 +82,7 @@
      color: #f00;
  }
  .calendar-right {
-     width: 150px;
+     width: 170px;
      height: 370px;
  }
 .calendar-right *{
