@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="calendar">
+        <div class="calendar-left">
+            <div class="left-top">
+                <div class="year-box">
+                    <a id="yearPre" href="#"></a>
+                    <select id="year" ></select>
+                    <a id="yearNext" href="#"></a>
+                </div>
+                <div class="month-box">
+                    <a id="monthPre" href="#"></a>
+                    <select id="month"></select>
+                    <a id="monthNext" href="#"></a>
+                </div>
+            <div class="return-today">
+                <a href="#" id="returnToday">返回今天</a>
+            </div>
+            </div>
+
+            <div class="left-bottom">
+                <table id="table">
+                    <!--
+                    <tr>
+                        <th class="table-weekend">日</th>
+                        <th>一</th>
+                        <th onclick="alert(llll);">二</th>
+                        <th>三</th>
+                        <th>四</th>
+                        <th>五</th>
+                        <th class="table-weekend">六</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="table-everyday-daynum">28</span><br>
+                            <span class="table-everyday-lunar">二十</span>
+                        </td>
+                        <td>
+                            <span class="table-everyday-daynum">29</span><br>
+                            <span class="table-everyday-festival">清明节</span>
+                        </td>
+                        <td>30</td>
+                        <td>31</td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                    </tr>
+                    -->
+                </table>
+            </div>
+        </div>
+        <div class="calendar-right">
+            <p id="selectFullDate" ></p>
+            <p id="selectDay"></p>
+            <p>
+                <span id="selectLunnarDay"></span><br>
+                <span id="selectLunnarYear"></span><br>
+                <span style="color: brown">大吉大利</span>
+            </p>
+            <span></span>
+            <p id="bjTime">
+                <span style="color: blue">北京时间</span><br>
+                <span></span><br>
+                <span></span>
+            </p>
+        </div>
+    </div>
+    <script type="text/javascript" src="functions.js"></script>
+</body>
+</html>
