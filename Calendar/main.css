@@ -1,0 +1,126 @@
+ * {
+     margin: 0;
+     padding: 0;
+     font-size: 14px;
+     font-weight: normal;
+     font-family: arial;
+     color: #333;
+ }
+ div:not(.calendar){
+     float: left;
+ }
+ .calendar {
+     display: flex;
+     width: 560px;
+     height: 370px;
+     background-color: #5caeff;
+     justify-content: space-between;
+     align-items: center;
+     margin: auto;
+ }
+ .calendar-left {
+     margin: 2px;
+     width: 408px;
+     height: 366px;
+     position: relative;
+     background-color: #f3f5fa;
+ }
+ .left-top {
+     width: 408px;
+     height: 50px;
+     display: flex;
+     justify-content: space-around;
+     align-items: center;
+ }
+ .year-box,.month-box,.return-today {
+     border:1px solid #c8cacc;
+     display: flex;
+     justify-content: space-between;
+ }
+ .return-today a {
+     display: inline-block;
+     text-align: center;
+     width: 70px;
+     height: 20px;
+     text-decoration: none;
+     border: 1px solid #888;
+ }
+ .return-today a:hover {
+    border-color: #55aaff;
+ }
+ .left-bottom {
+     padding:5px 10px;
+ }
+ table {
+     width: 385px;
+     height: 305px;
+     text-align: center;
+     border-collapse:collapse;
+     font-size: 14px;
+     font-weight: 400;
+     background-color: #fff;
+ }
+ .table-weekend {
+     color: #f00;
+ }
+ table tr:nth-child(1) {
+     height: 34px;
+     border-top: 1px solid #55aaff;
+     background-color: #eee;
+ }
+ table tr:not(:first-child) {
+     height: 54px;
+     border-top: 1px solid #c8cacc;
+ }
+ table tr td {
+     width: 55px;
+ }
+ .table-everyday-lunar {
+     color: #c8cacc;
+ }
+ .table-everyday-festival {
+     color: #f00;
+ }
+ .calendar-right {
+     width: 150px;
+     height: 370px;
+ }
+.calendar-right *{
+    color: #fff;
+}
+.calendar-right>p:nth-child(1) {
+    margin: 20px 4px;
+}
+ .calendar-right>p:nth-child(2) {
+     width: 100px;
+     height: 80px;
+     background-color: #ffbb00;
+     margin: 10px auto;
+     font-size: 80px;
+     line-height: 80px;
+     text-align: center;
+ }
+ .calendar-right>p:nth-child(3),.calendar-right>p:nth-child(5){
+     width: 100px;
+     height: 80px;
+     text-align: center;
+     line-height: 25px;
+     margin: 10px auto;
+ }
+ .calendar-right> span {
+     display: block;
+     width: 100px;
+     border-top: 2px solid #94c9ff;
+     margin: auto;
+ }
+ #yearPre,#yearNext,#monthPre,#monthNext {
+     display: inline-block;
+     width:20px;
+     height:20px;
+ }
+ #yearPre,#monthPre {
+     background:url("images/to-left-right.gif") 1px  -1px no-repeat;
+ }
+ #yearNext,#monthNext{
+     background:url("images/to-left-right.gif") -17px  -1px no-repeat;
+ }
