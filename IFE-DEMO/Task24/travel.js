@@ -225,7 +225,7 @@
                     selectedDiv.appendChild(addDiv);
 
                 } else {
-                    alert("请选择删除的节点");
+                    alert("请选择增加的节点");
                     return;
                 }
             } else {
