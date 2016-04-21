@@ -1,0 +1,63 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+fieldset {
+    width: 30%;
+    display: flex;
+    justify-content: space-around;
+    margin: 20px auto;
+    align-items: center;
+}
+div:not(#root) {
+    border: 1px solid #9f9f9f;
+    padding: 3px;
+    margin: 10px 5px 5px 15px;
+}
+label {
+    cursor: pointer;
+}
+span {
+    margin: 0;
+    padding: 0;
+}
+.icon {
+    display: inline-block;
+    width: 0px;
+    height: 0px;
+    margin: 0px 5px 0px 10px;
+    border-top: 5px solid transparent ;
+    border-left: 10px solid #94c9ff ;
+    border-bottom: 5px solid transparent ;
+}
+.icondown {
+    display: inline-block;
+    width: 0px;
+    height: 0px;
+    margin: 0px 5px 0px 10px;
+    border-top: 10px solid #94c9ff ;
+    border-left: 5px solid  transparent;
+    border-right: 5px solid transparent ;
+}
+.key-name {
+    font-family: "Microsoft YaHei";
+    font-size: 16px;
+    color: #55aaff;
+}
+.add {
+    display: none;
+    width: 14px;
+    height: 14px;
+    background: url("images/add.png") -1px -1px no-repeat;
+    vertical-align: -10%;
+    margin-left: 5px;
+}
+.delete {
+    display: none;
+    width: 16px;
+    height: 16px;
+    background: url("images/delete.png") no-repeat;
+    vertical-align: -10%;
+    margin-left: 5px;
+}
