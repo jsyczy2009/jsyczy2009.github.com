@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>树形组件</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <fieldset>
+        <legend>树形组件</legend>
+        <div class="top">
+            <input type="text" id ="key" value="Java">
+            <button id="search">搜索</button>
+        </div>
+        <div id="root">
+            <div class="bottom" >
+                <label><span class="icon"></span><span class="key-name">技术</span><span class="add"></span></label>
+                    <div class="item">
+                        <label><span class="icon"></span> <span class="key-name">Java</span>
+                            <span class="add"></span><span class="delete"></span></label>
+                    <div class="item">
+                        <label><span class="icon"></span> <span class="key-name">Struts</span>
+                            <span class="add"></span><span class="delete"></span> </label>
+                    </div>
+                    <div class="item">
+                        <label><span class="icon"></span> <span class="key-name">Java EE</span>
+                            <span class="add"></span><span class="delete"></span> </label>
+                    </div>
+                </div>
+                <div class="item">
+                        <label><span class="icon"></span> <span class="key-name">数据库</span>
+                            <span class="add"></span><span class="delete"></span> </label>
+                    <div class="item">
+                        <label><span class="icon"></span> <span class="key-name">MySQL</span>
+                            <span class="add"></span><span class="delete"></span> </label>
+                    </div>
+                    <div class="item">
+                        <label><span class="icon"></span> <span class="key-name">Oracle</span>
+                            <span class="add"></span><span class="delete"></span> </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
