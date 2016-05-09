@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-size: 18px;
+    color: #fff;
+}
+button {
+    font-size: 14px;
+}
+.left {
+    width: 450px;
+    height: 100%;
+    float: left;
+    margin-left: 50px;
+}
+.operate{
+    margin-top: 20px ;
+    height: 160px;
+    background-color: #888888;
+}
+.operate_title,.console_title {
+    background-color: blue;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+}
+.operate_item {
+    line-height: 30px;
+}
+.console {
+    margin-top: 20px ;
+    height: 300px;
+    background-color: #888888;
+    overflow: auto;
+}
+
+.right {
+    width: 600px;
+    height: 600px;
+    float: right;
+    margin-right:100px ;
+    background-color: #c8cacc;
+    position: relative;
+}
+.planet {
+    width: 0;
+    height: 0;
+    border: 50px solid #55aaff;
+    border-radius: 50px;
+    position: absolute;
+    margin-left: -50px;
+    margin-top: -50px;
+    top:50%;
+    left:50%;
+}
+.orbit_first,.orbit_second,.orbit_third,.orbit_forth {
+    width: 0;
+    height: 0;
+    border: 2px solid #333333;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+.orbit_first {
+    padding: 98px;
+    border-radius: 100px;
+    margin-top: -100px;
+    margin-left: -100px;
+}
+.orbit_second {
+    padding: 148px;
+    border-radius: 150px;
+    margin-top: -150px;
+    margin-left: -150px;
+}
+.orbit_third {
+    padding: 198px;
+    border-radius: 200px;
+    margin-top: -200px;
+    margin-left: -200px;
+}
+.orbit_forth {
+    padding: 248px;
+    border-radius: 250px;
+    margin-top: -250px;
+    margin-left: -250px;
+}
+.ship_01,.ship_02,.ship_03,.ship_04 {
+    width: 50px;
+    height: 20px;
+    line-height: 20px;
+    position: absolute;
+    top: 50%;
+    left:50%;
+    background-color: #fff000;
+    display: none;
+    color:red ;
+}
+.ship_01 {
+    margin-left: -25px;
+    margin-top: -107px;
+    transform-origin : 25px 107px;
+}
+.ship_02 {
+    margin-left: -25px;
+    margin-top: -157px;
+    transform-origin : 25px 157px;
+}
+.ship_03 {
+    margin-left: -25px;
+    margin-top: -207px;
+    transform-origin : 25px 207px;
+}
+.ship_04 {
+    margin-left: -25px;
+    margin-top: -257px;
+    transform-origin : 25px 257px;
+}
+li {
+    font-size:  .8em;
+    background-color: #55aaff;
+    color: red;
+}
+
