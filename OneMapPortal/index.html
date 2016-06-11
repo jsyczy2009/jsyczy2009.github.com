@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-COMPATIBLE" content="IE=Edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet/less" href="less/style.less">
+    <script src="js/less.min.js" type="text/javascript"></script>
+    <title>首页</title>
+
+</head>
+<body>
+<div class="loginMask">
+</div>
+<div id="loginForm">
+    <h2>用户登录
+        <span title="关闭" class="" onclick="hideLogin();"
+              style="font-size: 35px; color: #080808;float: right;margin-right: 20px;cursor: pointer">X</span>
+    </h2>
+
+    <form class="form-horizontal" action="..." role="form">
+        <div class="form-group">
+            <label for="username" class="col-sm-2 control-label">用户名</label>
+
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="username" placeholder="请输入用户名">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password" class="col-sm-2 control-label">密码</label>
+
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="password" placeholder="请输入密码">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="confirm" class="col-sm-2 control-label">验证码</label>
+
+            <div class="col-sm-3">
+                <input type="text" class="form-control" id="confirm" placeholder="">
+            </div>
+            <img src="" alt="验证码" class="col-sm-2" style="line-height: 50px">
+            <span onclick="" style="color: #ce8483; cursor: pointer;line-height: 50px">忘记密码?</span>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-2">
+                <button type="submit" class="btn btn-success" style="font-size: 30px;margin-left: 200px">登录</button>
+            </div>
+            <div class="col-sm-2">
+                <button type="button" class="btn btn-success" style="font-size: 30px;margin-left: 200px" onclick="">注册
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+<nav id="top-bar" class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed navbar-btn" data-toggle="collapse"
+                    data-target="#navbar-uls">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div id="navbar-uls" class="navbar-collapse collapse" aria-expanded="true">
+            <ul id="nav-bar" class="nav navbar-nav">
+                <li></li>
+                <li><a id="sy" href="javascript:void(0)" class="a-active">首页</a></li>
+                <li><a id="zyml" href="javascript:void(0)">资源目录</a></li>
+                <li><a id="jcsj" href="javascript:void(0)">基础数据</a></li>
+                <li><a id="rhfw" href="javascript:void(0)">融合服务</a></li>
+                <li><a id="dlxx" href="javascript:void(0)">地理信息</a></li>
+                <li><a id="lxwm" href="javascript:void(0)">最新信息</a></li>
+                <li><span title="登录" class="login" onclick="showLogin();"><span class="glyphicon glyphicon-user"></span>&nbsp;登录</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="search" class="jumbotron place">
+    <div class="container text-nowrap">
+        <h1>共享数据平台</h1>
+
+        <h2>SHARING DATA PLATFORM</h2>
+
+        <form class="form-group" action="...">
+            <input type="text" maxlength="30" class="form-control" placeholder="输入关键字进行搜索"/>
+            <button type="submit" class="btn bg-primary"><span class="glyphicon glyphicon-search"></span></button>
+        </form>
+        <ul class="hot_search">
+            <span>热门搜索:</span>
+            <li><a href="">公积金</a></li>
+            <li><a>人口</a></li>
+            <li><a>空间地理</a></li>
+        </ul>
+    </div>
+</div>
+<div id="resources" class="container-fluid place">
+    <h2>资源目录</h2>
+
+    <div class="container">
+        <ul>
+            <li>
+                <a href="javascript:void(0);">
+                    <i class="rs_lyzy"></i>
+                    <h4>旅游住宿</h4>
+                </a>
+            </li>
+            <li><a href="javascript:void(0);">
+                <i class="rs_jtfw"></i>
+                <h4>交通服务</h4>
+            </a></li>
+            <li><a href="javascript:void(0);">
+                <i class="rs_cygw"></i>
+                <h4>餐饮购物</h4>
+            </a></li>
+            <li><a href="javascript:void(0);">
+                <i class="rs_ylws"></i>
+                <h4>医疗卫生</h4>
+            </a></li>
+            <li><a href="javascript:void(0);">
+                <i class="rs_wtxx"></i>
+                <h4>文体休闲</h4>
+            </a></li>
+            <li><a href="javascript:void(0);">
+                <i class="rs_kyjy"></i>
+                <h4>科研教育</h4>
+            </a></li>
+            <li><a href="javascript:void(0);">
+                <i class="rs_msfw"></i>
+                <h4>民生服务</h4>
+            </a></li>
+            <li><a href="javascript:void(0);">
+                <i class="rs_shfz"></i>
+                <h4>社会发展</h4>
+            </a></li>
+            <li><a href="javascript:void(0);">
+                <i class="rs_jgtt"> </i>
+                <h4>机构团体</h4>
+            </a></li>
+            <li><a href="javascript:void(0);">
+                <i class="rs_zyhj"></i>
+                <h4>环境资源</h4>
+            </a></li>
+        </ul>
+    </div>
+    <div class="rs_content container-fluid ">
+        <b class="close glyphicon glyphicon-remove"></b>
+
+        <p class="level1">一级分类</p>
+        <dl>
+            <dd>
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item"><a class="level2">二级分类</a></li>
+                    <li class="list-group-item list-group-item-info"><span class="badge">14</span><a
+                            class="level3">三级分类</a></li>
+                    <li class="list-group-item"><span class="badge">14</span><a class="level3">三级分类</a></li>
+                    <li class="list-group-item list-group-item-info"><span class="badge">14</span><a
+                            class="level3">三级分类</a></li>
+                    <li class="list-group-item"><span class="badge">14</span><a class="level3">三级分类</a></li>
+                    <li class="list-group-item list-group-item-danger li-more"><span class="more"
+                                                                                     onclick="">更多...</span></li>
+                </ul>
+            </dd>
+            <dd>
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item"><a class="level2">二级分类</a></li>
+                    <li class="list-group-item list-group-item-info"><span class="badge">14</span><a
+                            class="level3">三级分类</a></li>
+                    <li class="list-group-item"><span class="badge">14</span><a class="level3">三级分类</a></li>
+                    <li class="list-group-item list-group-item-info"><span class="badge">14</span><a
+                            class="level3">三级分类</a></li>
+                    <li class="list-group-item"><span class="badge">14</span><a class="level3">三级分类</a></li>
+                    <li class="list-group-item list-group-item-danger li-more"><span class="more"
+                                                                                     onclick="">更多...</span></li>
+                </ul>
+            </dd>
+            <dd>
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item"><a class="level2">二级分类</a></li>
+                    <li class="list-group-item list-group-item-info"><span class="badge">14</span><a
+                            class="level3">三级分类</a></li>
+                    <li class="list-group-item"><span class="badge">14</span><a class="level3">三级分类</a></li>
+                    <li class="list-group-item list-group-item-info"><span class="badge">14</span><a
+                            class="level3">三级分类</a></li>
+                    <li class="list-group-item"><span class="badge">14</span><a class="level3">三级分类</a></li>
+                    <li class="list-group-item list-group-item-danger li-more"><span class="more"
+                                                                                     onclick="">更多...</span></li>
+                </ul>
+            </dd>
+            <dd>
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item"><a class="level2">二级分类</a></li>
+                    <li class="list-group-item list-group-item-info"><span class="badge">14</span><a
+                            class="level3">三级分类</a></li>
+                    <li class="list-group-item"><span class="badge">14</span><a class="level3">三级分类</a></li>
+                    <li class="list-group-item list-group-item-info"><span class="badge">14</span><a
+                            class="level3">三级分类</a></li>
+                    <li class="list-group-item"><span class="badge">14</span><a class="level3">三级分类</a></li>
+                    <li class="list-group-item list-group-item-danger li-more"><span class="more"
+                                                                                     onclick="">更多...</span></li>
+                </ul>
+            </dd>
+            <dd>
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item"><a class="level2">二级分类</a></li>
+                    <li class="list-group-item list-group-item-info"><span class="badge">14</span><a
+                            class="level3">三级分类</a></li>
+                    <li class="list-group-item"><span class="badge">14</span><a class="level3">三级分类</a></li>
+                    <li class="list-group-item list-group-item-info"><span class="badge">14</span><a
+                            class="level3">三级分类</a></li>
+                    <li class="list-group-item"><span class="badge">14</span><a class="level3">三级分类</a></li>
+                    <li class="list-group-item list-group-item-danger li-more"><span class="more"
+                                                                                     onclick="">更多...</span></li>
+                </ul>
+            </dd>
+            <dd>
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item"><a class="level2">二级分类</a></li>
+                    <li class="list-group-item list-group-item-info"><span class="badge">14</span><a
+                            class="level3">三级分类</a></li>
+                    <li class="list-group-item"><span class="badge">14</span><a class="level3">三级分类</a></li>
+                    <li class="list-group-item list-group-item-info"><span class="badge">14</span><a
+                            class="level3">三级分类</a></li>
+                    <li class="list-group-item"><span class="badge">14</span><a class="level3">三级分类</a></li>
+                    <li class="list-group-item list-group-item-danger li-more"><span class="more"
+                                                                                     onclick="">更多...</span></li>
+                </ul>
+            </dd>
+        </dl>
+    </div>
+</div>
+<div id="basedatas" class="container-fluid place">
+    <h2>基础数据</h2>
+
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut scelerisque justo. Integer tempor,
+        sem et dapibus vulputate, quam elit pharetra arcu, et posuere est lectus sed enim. In nec nibh porta,
+        dignissim magna ac, pulvinar ...
+    </p>
+
+    <div class="container-fluid">
+        <ul>
+            <li><a href="">
+                <i class="bd_frsj"></i>
+
+                <h3>法人数据</h3>
+            </a></li>
+            <li><a href="">
+                <i class="bd_rksj"></i>
+
+                <h3>人口数据</h3>
+            </a></li>
+            <li><a href="">
+                <i class="bd_jjsj"></i>
+
+                <h3>经济数据</h3>
+            </a></li>
+            <li><a href="">
+                <i class="bd_kjsj"></i>
+
+                <h3>空间地理</h3>
+            </a></li>
+        </ul>
+    </div>
+</div>
+<div id="mixservice" class="container-fluid place">
+    <h2>融合服务</h2>
+
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    </p>
+
+    <div class="container">
+        <div class="mixs-img">
+            <img src="images/mixImgs/mix-img.png">
+        </div>
+        <div class="mix-rkdl">
+            <h2>人口地理融合</h2>
+        </div>
+        <div class="mix-frdl">
+            <h2>法人地理融合</h2>
+        </div>
+        <div class="mix-rkfr">
+            <h2>人口法人融合</h2>
+        </div>
+        <div class="mix-jjdl">
+            <h2>经济地理融合</h2>
+        </div>
+        <div class="mix-rkjj">
+            <h2>人口经济融合</h2>
+        </div>
+        <div class="mix-frj">
+            <h2>法人经济融合</h2>
+        </div>
+
+    </div>
+</div>
+<div id="placeinfo" class="container-fluid place">
+    <h2>地理信息</h2>
+
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut scelerisque justo. Integer tempor,
+        sem et dapibus vulputate, quam elit pharetra arcu, et posuere est lectus sed enim. In nec nibh porta,
+        dignissim magna ac, pulvinar ...
+    </p>
+
+    <div class="container">
+        <div class="col-md-4">
+            <a href="">
+                <div class="mask"></div>
+                <img src="images/palceinfo/tddt.png">
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a href="">
+                <div class="mask"></div>
+                <img src="images/palceinfo/chcg.png">
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a href="">
+                <div class="mask"></div>
+                <img src="images/palceinfo/dlxx2.png">
+            </a>
+        </div>
+    </div>
+</div>
+<div id="news" class="container-fluid place">
+    <h2>最新信息</h2>
+
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut scelerisque justo. Integer tempor,
+        sem et dapibus vulputate, quam elit pharetra arcu, et posuere est lectus sed enim. In nec nibh porta,
+        dignissim magna ac, pulvinar ...
+    </p>
+
+    <div class="container">
+        <ul class="news-datas col-md-4">
+            <span class="news-data-icon"><img src="images/newsImgs/1.png"
+                                              style="width: 80px;height: 80px;transform: scale(0.9)">&nbsp;最新数据</span>
+            <li class="news-datas-item"><a href="javascript:;;">陕西省进出口贸易</a></li>
+            <li class="news-datas-item"><a href="javascript:;;">陕西省进出口贸易</a></li>
+            <li class="news-datas-item"><a href="javascript:;;">陕西省进出口贸易</a></li>
+            <li class="news-datas-item"><a href="javascript:;;">陕西省进出口贸易</a></li>
+        </ul>
+        <div class="col-lg-2"></div>
+        <ul class="news-api col-md-4">
+            <span class="news-api-icon"><img src="images/newsImgs/2.png"
+                                             style="width: 80px;height: 80px">&nbsp;编程接口</span>
+            <li class="news-datas-item"><a href="javascript:;;">陕西省进出口贸易</a></li>
+            <li class="news-datas-item"><a href="javascript:;;">陕西省进出口贸易</a></li>
+            <li class="news-datas-item"><a href="javascript:;;">陕西省进出口贸易</a></li>
+            <li class="news-datas-item"><a href="javascript:;;">陕西省进出口贸易</a></li>
+        </ul>
+    </div>
+
+</div>
+<footer>
+    <p class="fnav">
+        <a href="">互动交流</a>
+        <a href="">关于我们</a>
+        <a href="">互动交流</a>
+        <a href="">互动交流</a>
+    </p>
+
+    <p>Copyright © 2016 www.12345678.gov.cn All Rights Reserved</p>
+
+    <p>陕ICP备12038785号 网站访问量：709443</p>
+</footer>
+
+
+</body>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/main.js"></script>
+<script type="text/javascript">
+    function hideLogin() {
+        $(".loginMask").css("display", "none");
+        $("#loginForm").css("display", "none");
+    }
+    function showLogin() {
+        $(".loginMask").css("display", "block");
+        $("#loginForm").css("display", "block");
+    }
+</script>
+</html>
