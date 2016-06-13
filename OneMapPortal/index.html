@@ -7,55 +7,61 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet/less" href="less/style.less">
     <script src="js/less.min.js" type="text/javascript"></script>
-    <title>首页</title>
-
+    <title>陕西省基础信息资源</title>
 </head>
 <body>
-<div class="loginMask">
-</div>
-<div id="loginForm">
-    <h2>用户登录
-        <span title="关闭" class="" onclick="hideLogin();"
-              style="font-size: 35px; color: #080808;float: right;margin-right: 20px;cursor: pointer">X</span>
-    </h2>
+<div id="loginMask" class="modal fade" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1>用户登录
+                    <span title="关闭" class="close" data-dismiss="modal"
+                          style="font-size: 35px; color: #080808;float: right;margin-top:25px;margin-right: 20px;cursor: pointer">X</span>
+                </h1>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" action="..." role="form">
+                    <div class="form-group">
+                        <label for="username" class="col-sm-2 control-label">用户名</label>
 
-    <form class="form-horizontal" action="..." role="form">
-        <div class="form-group">
-            <label for="username" class="col-sm-2 control-label">用户名</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="username" placeholder="请输入用户名">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="col-sm-2 control-label">密码</label>
 
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="username" placeholder="请输入用户名">
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="password" class="col-sm-2 control-label">密码</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="password" placeholder="请输入密码">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm" class="col-sm-2 control-label">验证码</label>
 
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="password" placeholder="请输入密码">
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" id="confirm" placeholder="">
+                        </div>
+                        <img src="" alt="验证码" class="col-sm-2" style="line-height: 50px">
+                        <span onclick="" style="color: #ce8483; cursor: pointer;line-height: 50px">忘记密码?</span>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success" style="font-size: 30px;margin-left: 200px">
+                                登录
+                            </button>
+                            <button type="button" class="btn btn-success" style="font-size: 30px;margin-left: 200px"
+                                    onclick="eval('alert(1)')">注册
+                            </button>
+                        </div>
+                    </div>
+                </form>
             </div>
-        </div>
-        <div class="form-group">
-            <label for="confirm" class="col-sm-2 control-label">验证码</label>
 
-            <div class="col-sm-3">
-                <input type="text" class="form-control" id="confirm" placeholder="">
-            </div>
-            <img src="" alt="验证码" class="col-sm-2" style="line-height: 50px">
-            <span onclick="" style="color: #ce8483; cursor: pointer;line-height: 50px">忘记密码?</span>
         </div>
-        <div class="form-group">
-            <div class="col-sm-2">
-                <button type="submit" class="btn btn-success" style="font-size: 30px;margin-left: 200px">登录</button>
-            </div>
-            <div class="col-sm-2">
-                <button type="button" class="btn btn-success" style="font-size: 30px;margin-left: 200px" onclick="">注册
-                </button>
-            </div>
-        </div>
-    </form>
+    </div>
 </div>
 <nav id="top-bar" class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+    <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed navbar-btn" data-toggle="collapse"
                     data-target="#navbar-uls">
@@ -75,7 +81,8 @@
                 <li><a id="rhfw" href="javascript:void(0)">融合服务</a></li>
                 <li><a id="dlxx" href="javascript:void(0)">地理信息</a></li>
                 <li><a id="lxwm" href="javascript:void(0)">最新信息</a></li>
-                <li><span title="登录" class="login" onclick="showLogin();"><span class="glyphicon glyphicon-user"></span>&nbsp;登录</span>
+                <li><span title="登录" class="login" data-toggle="modal" data-target="#loginMask"><span
+                        class="glyphicon glyphicon-user"></span>&nbsp;登录</span>
                 </li>
             </ul>
         </div>
@@ -374,8 +381,6 @@
     <p>陕ICP备12038785号 网站访问量：709443</p>
 </footer>
 
-
-</body>
 <script src="js/jquery-1.11.3.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/main.js"></script>
@@ -388,5 +393,15 @@
         $(".loginMask").css("display", "block");
         $("#loginForm").css("display", "block");
     }
+    function getnavbarMargin() {
+        var navWidth = $(window).width();
+        if (navWidth > 1024) {
+            var bar = $("#nav-bar").width();
+            $("#nav-bar").css({"margin-left": ((navWidth - bar) / 2 -30)+ "px"});
+        }
+    }
+    $().ready(getnavbarMargin);
+    $(window).resize(getnavbarMargin);
 </script>
+</body>
 </html>

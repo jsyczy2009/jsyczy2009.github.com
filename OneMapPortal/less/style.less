@@ -22,6 +22,8 @@ body {
   padding-top: 66px;
   font-size: 18px;
   font-family: "Microsoft YaHei";
+  font-weight: 200;
+  min-width: 768px;
 }
 a {
   cursor: pointer;
@@ -59,7 +61,6 @@ a:hover,a:focus {
   height: 66px;
 }
 #navbar-uls {
-  width: 600px;
   margin:0 auto;
 }
 .navbar-toggle {
@@ -70,14 +71,11 @@ a:hover,a:focus {
  background-color: white;
 }
 @media screen and(min-width: 1000px){
-  #navbar-uls {
-    width: 890px;
-  }
   #nav-bar li:nth-child(1)  {
     width: 295px;
     height: 66px;
-    background: url("../images/logo.png") transparent 0 0 no-repeat;
-    background-size: 96% 99% ;
+    background: url("../images/logo.png") transparent 0 -20px no-repeat;
+    background-size: 270px 100px ;
     overflow: hidden;
     padding-left: 40px;
   }
@@ -101,60 +99,47 @@ a:hover,a:focus {
   line-height: 66px;
   margin-left: 20px;
 }
-
-.loginMask {
-  width: 100%;
-  height: 100%;
-  background-color: #101010;
-  opacity: 0.8;
-  position: absolute;
-  top: 0px;
-  z-index: 10000;
-  display: none;
+.modal-content{
+  border-radius: 25px;
+  margin-top: 30%;
 }
-
-#loginForm {
-  background-color: white;
-  width: 650px;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  margin-left: -330px;
-  margin-top: -210px;
-  z-index: 99999;
-  border-radius: 20px;
-  display: none;
+.modal-header {
+  border-radius: 25px;
+  background-color: #308bfd;
 }
-
-#loginForm h2 {
+#loginMask .modal-header h1{
   height: 80px;
   line-height: 80px;
   margin: 0;
   font-size: 50px;
   background-color: #308bfd;
   color: white;
-  padding-left: 50px;
-  border-top-right-radius: 20px;
-  border-top-left-radius: 20px;
 }
 
-#loginForm form div.form-group {
+#loginMask form div.form-group {
   margin: 20px 0 10px 10px;
 }
 
-#loginForm form label {
+#loginMask form label {
   font-weight: normal;
   font-size: 14px;
   line-height: 50px;
 }
 
-#loginForm input {
+#loginMask input {
   height: 50px;
   width: 350px;
 }
 
-#loginForm #confirm {
+#loginMask #confirm {
   width: 100px;
+}
+#loginMask .modal-footer {
+  text-align: center;
+}
+#loginMask .modal-footer button {
+  display: inline-block;
+  margin-left: 20px  !important;
 }
 
 #top-bar a:hover {
@@ -224,7 +209,8 @@ a:hover,a:focus {
   width: 60px;
   height: 50px;
   top: 5px;
-  right: 5px;
+  right: 8px;
+  border-radius: 0;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
 }
@@ -606,6 +592,7 @@ footer p {
   text-align: center;
   margin: 2px;
   color: #ccc;
+  font-size: 18px;
 }
 
 footer p:not(.fnav) {
